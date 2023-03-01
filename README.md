@@ -1,2 +1,2 @@
-# movee-app
+# bola-app
 First fullstack solo project
