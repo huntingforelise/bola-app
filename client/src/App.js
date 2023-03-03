@@ -1,19 +1,27 @@
 import "./App.css";
 import SignIn from "./components/SignIn";
 import GameList from "./components/GameList";
-import AddGame from "./components/AddGame";
+import GameAdd from "./components/GameAdd";
+import Profile from "./components/Profile";
 import * as ApiClient from "./ApiClientService";
-import { postUser } from "./ApiClientService";
 import { useState, useEffect } from "react";
 import image from "./assets/image.jpg";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState();
   const [games, setGames] = useState([]);
 
   function logIn(user) {
-    const output = postUser(user);
-    if (output) setLoggedIn(true);
+    ApiClient.postUser(user)
+      .then((user) => {
+        if (user) {
+          const output = true;
+          setLoggedIn(output);
+          setUser(user);
+        }
+      })
+      .catch((error) => console.log(error));
   }
 
   useEffect(() => {
@@ -22,12 +30,12 @@ function App() {
       .catch((error) => console.log(error));
   }, []);
 
-  function postGame(data) {
+  function postGame(game) {
     ApiClient.postGame({
-      date: data.date,
-      beach: data.beach,
-      maxplayers: data.maxplayers,
-      level: data.level,
+      date: game.date,
+      beach: game.beach,
+      maxplayers: game.maxplayers,
+      level: game.level,
     })
       .then((newGame) => {
         setGames([...games, newGame]);
@@ -52,17 +60,24 @@ function App() {
 
   return (
     <div className="App">
-      <img src={image} alt="bola-logo" width={50} height={50} />
-      <h1>Bola</h1>
+      <header>
+        <h1>
+          B<img src={image} alt="bola-logo" width={50} height={50} />
+          la
+        </h1>
+      </header>
       {loggedIn ? (
-        <>
+        <div className="body-container">
           <div className="list-container">
             <GameList games={games} joinGame={joinGame} />
           </div>
           <div className="add-container">
-            <AddGame postGame={postGame} />
+            <GameAdd postGame={postGame} />
           </div>
-        </>
+          <div className="profile-container">
+            <Profile user={user} />
+          </div>
+        </div>
       ) : (
         <div className="login-container">
           <SignIn logIn={logIn} />
@@ -73,17 +88,3 @@ function App() {
 }
 
 export default App;
-
-// return (
-//   <div className="App">
-//     <div className="list-container">
-//       <GameList games={games} joinGame={joinGame} />
-//     </div>
-//     <div className="add-container">
-//       <AddGame postGame={postGame} />
-//     </div>
-//     <div className="login-container">
-//       <SignIn />
-//     </div>
-//   </div>
-// );
