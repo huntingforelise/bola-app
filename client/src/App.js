@@ -136,7 +136,9 @@ function App() {
             />
             <Route path="/account" element={<Account user={user} />} />
           </Routes>
-          <Box sx={{ width: "100vw", position: "fixed", bottom: 0 }}>
+          <Box
+            sx={{ width: "100vw", position: "fixed", bottom: 0, opacity: 0.5 }}
+          >
             <BottomNavigation showLabels>
               <BottomNavigationAction
                 label="Upcoming"

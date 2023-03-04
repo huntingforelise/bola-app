@@ -3,6 +3,7 @@
 }
 
 body {
+  background-color: #3faae2;
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -18,10 +19,9 @@ header {
   position: sticky;
 }
 
-h1 {
-  color: darkblue;
-  font-size: 40px;
-  margin: 0;
+h2 {
+  color: #dbd4af;
+  margin-top: 30px;
 }
 
 /* input {
@@ -33,11 +33,33 @@ img {
   width: 50vw;
 }
 
+input,
+select {
+  background-color: #3faae2;
+  border: none;
+  border-radius: 3px;
+  color: #dbd4af;
+  font-size: 16px;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+button {
+  background-color: #3faae2;
+  border: none;
+  border-radius: 3px;
+  color: #dbd4af;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 10px;
+}
+
 .game {
   align-items: center;
-  background-color: rgb(253, 253, 114);
+  background-color: #dbd4af;
   border-radius: 10px;
-  color: darkblue;
+  color: #3faae2;
   display: flex;
   justify-content: space-around;
   margin: 30px 20px;
@@ -45,22 +67,41 @@ img {
 }
 
 .game-incomplete {
-  background-color: darkblue;
+  background-color: #3faae2;
+  border: none;
   border-radius: 5px;
-  color: white;
-  padding: 10px;
+  color: #dbd4af;
+  padding: 20px;
 }
 
 .add-container {
-  background-color: darkblue;
+  background-color: #dbd4af;
   align-items: center;
-  border: 1px solid none;
   border-radius: 10px;
-  color: rgb(253, 253, 114);
+  color: #3faae2;
   display: flex;
   flex-direction: column;
-  margin: 30px 20px;
-  padding: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 30px auto;
+  padding: 10px 20px;
+  text-align: left;
+  max-width: 70vw;
+}
+
+.account-container {
+  background-color: #dbd4af;
+  /* align-items: center; */
+  border-radius: 10px;
+  color: #3faae2;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  /* font-weight: bold; */
+  margin: 30px auto;
+  padding: 20px 20px;
+  text-align: left;
+  max-width: 70vw;
 }
 
 .add-container h2 {
@@ -78,5 +119,5 @@ img {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: darkblue;
+  background: #dbd4af;
 }
