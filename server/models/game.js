@@ -16,6 +16,9 @@ const gameSchema = new Schema({
     type: Number,
     default: 0,
   },
+  subscribedlist: {
+    type: Array,
+  },
   // hasnet: Boolean,
 });
 

@@ -28,11 +28,12 @@ export const postGame = (body) => {
     .catch((err) => console.log(err));
 };
 
-export const joinGame = (body) => {
-  const id = body._id;
-  return fetch(`${baseURL}/games/${id}`, {
+export const joinGame = (gameBody, userBody) => {
+  const gameId = gameBody._id;
+  const userId = userBody._id;
+  return fetch(`${baseURL}/games/${gameId}`, {
     method: "PUT",
-    body: JSON.stringify(body),
+    body: JSON.stringify({ userId }),
     headers: { "Content-type": "application/json; charset=UTF-8" },
   })
     .then((res) => res.json())

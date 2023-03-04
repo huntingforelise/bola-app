@@ -21,6 +21,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  gameslist: Array,
 });
 
 const user = mongoose.model("user", userSchema);

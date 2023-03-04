@@ -1,4 +1,4 @@
-function GameAdd({ postGame }) {
+function Organise({ postGame, user }) {
   function handleSubmit(event) {
     event.preventDefault();
     const form = event.target;
@@ -59,4 +59,4 @@ function GameAdd({ postGame }) {
   );
 }
 
-export default GameAdd;
+export default Organise;

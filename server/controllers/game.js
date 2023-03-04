@@ -1,6 +1,7 @@
 "use strict";
 
 const game = require("../models/game.js");
+const user = require("../models/user.js");
 
 exports.getAll = async (ctx) => {
   try {
@@ -26,14 +27,22 @@ exports.post = async (ctx) => {
 exports.join = async (ctx) => {
   try {
     const gameID = ctx.params.id;
+    const userID = ctx.request.body.userId;
     const gameToBeUpdated = await game.findById(gameID);
-    await game.updateOne(gameToBeUpdated, {
-      subscribedplayers: gameToBeUpdated.subscribedplayers + 1,
-    });
-    const updatedGame = await game.findById(gameID);
-    ctx.body = updatedGame;
-    ctx.status = 201;
+    const userToBeUpdated = await user.findById(ctx.request.body.userId);
+    if (gameToBeUpdated.subscribedlist.length < gameToBeUpdated.maxplayers) {
+      await game.updateOne(gameToBeUpdated, {
+        $addToSet: { subscribedlist: userID },
+      });
+      await user.updateOne(userToBeUpdated, {
+        $addToSet: { gameslist: gameID },
+      });
+      const updatedGame = await game.findById(gameID);
+      ctx.body = updatedGame;
+      ctx.status = 201;
+    }
   } catch (e) {
+    // console.log(e.message);
     console.log(e);
     ctx.status = 500;
   }
