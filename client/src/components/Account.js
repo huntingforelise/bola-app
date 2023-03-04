@@ -1,12 +1,20 @@
 function Account({ user }) {
   return (
     <>
-      <h2>Hi there {user.firstname}!</h2>
+      <h2>Hi there, {user.firstname}!</h2>
       <div className="account-container">
-        <p style={{ fontWeight: "bold", fontSize: 20, marginTop: 0 }}>
+        <p
+          style={{
+            fontWeight: "bold",
+            fontSize: 20,
+            marginTop: 0,
+            textAlign: "center",
+          }}
+        >
           Account info
+          <hr style={{ size: 50, color: "blue" }} />
+          {/* how do I fix this */}
         </p>
-        <hr style={{ size: 50, color: "blue" }} />
         <table>
           <tbody>
             <tr>

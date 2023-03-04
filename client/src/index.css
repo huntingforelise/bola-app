@@ -4,6 +4,7 @@
 
 body {
   background-color: #3faae2;
+  min-height: 100vh;
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -14,7 +15,6 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* padding: 20px; */
   padding-bottom: 0;
   position: sticky;
 }
@@ -24,13 +24,9 @@ h2 {
   margin-top: 30px;
 }
 
-/* input {
-
-} */
-
 img {
+  max-height: 150px;
   top: 0;
-  width: 50vw;
 }
 
 input,
@@ -53,6 +49,14 @@ button {
   font-weight: bold;
   margin-top: 10px;
   padding: 10px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.body-container {
+  padding-bottom: 60px;
 }
 
 .game {
@@ -91,13 +95,11 @@ button {
 
 .account-container {
   background-color: #dbd4af;
-  /* align-items: center; */
   border-radius: 10px;
   color: #3faae2;
   display: flex;
   flex-direction: column;
   font-size: 18px;
-  /* font-weight: bold; */
   margin: 30px auto;
   padding: 20px 20px;
   text-align: left;
@@ -111,6 +113,18 @@ button {
 .form-element {
   margin: 5px;
   padding: 5px;
+}
+
+.game-on {
+  background-color: #dbd4af;
+  border-radius: 10px;
+  color: #3faae2;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 30px auto;
+  padding: 10px 20px;
+  text-align: center;
+  max-width: 70vw;
 }
 
 ::-webkit-scrollbar {

@@ -1,14 +1,20 @@
-function Organise({ postGame }) {
+import { useState } from "react";
+
+function OrganiseGame({ postGame }) {
+  const [submitted, setSubmitted] = useState(false);
+
   function handleSubmit(event) {
     event.preventDefault();
     const form = event.target;
     const formData = new FormData(form);
     const formJson = Object.fromEntries(formData.entries());
     postGame(formJson);
+    setSubmitted(true);
+    event.target.reset();
   }
   return (
     <>
-      <h2>Organise a game</h2>
+      <h2>Organise a Game</h2>
       <div className="add-container">
         <div id="form">
           <form method="POST" onSubmit={handleSubmit}>
@@ -61,8 +67,9 @@ function Organise({ postGame }) {
           </form>
         </div>
       </div>
+      {submitted ? <div className="game-on">Your game is ON!</div> : null}
     </>
   );
 }
 
-export default Organise;
+export default OrganiseGame;

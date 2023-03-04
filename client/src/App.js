@@ -1,7 +1,7 @@
 import "./App.css";
 import SignIn from "./components/SignIn";
 import GameList from "./components/GameList";
-import Organise from "./components/Organise";
+import OrganiseGame from "./components/OrganiseGame";
 import Account from "./components/Account";
 import * as ApiClient from "./ApiClientService";
 import { useState, useEffect } from "react";
@@ -23,6 +23,18 @@ function App() {
   const [joinedGames, setJoinedGames] = useState([]);
   const navigate = useNavigate();
 
+  function logIn(user) {
+    ApiClient.postUser(user)
+      .then((user) => {
+        if (user) {
+          const output = true;
+          setLoggedIn(output);
+          setUser(user);
+        }
+      })
+      .catch((error) => console.log(error));
+  }
+
   const filterGames = (arr) => {
     if (loggedIn) {
       const myGames = [];
@@ -37,20 +49,8 @@ function App() {
     }
   };
 
-  function logIn(user) {
-    ApiClient.postUser(user)
-      .then((user) => {
-        if (user) {
-          const output = true;
-          setLoggedIn(output);
-          setUser(user);
-        }
-      })
-      .catch((error) => console.log(error));
-  }
-
   useEffect(() => {
-    ApiClient.getGames(user)
+    ApiClient.getGames()
       .then((games) => {
         setGames(games);
         if (loggedIn) {
@@ -100,46 +100,53 @@ function App() {
         <img src={image} alt="bola-logo" />
       </header>
       {loggedIn ? (
-        <div className="body-container">
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <GameList
-                  games={games}
-                  joinGame={joinGame}
-                  user={user}
-                  joined={false}
-                />
-              }
-            />
-            <Route
-              path="/gamelist"
-              element={
-                <GameList
-                  games={games}
-                  joinGame={joinGame}
-                  user={user}
-                  joined={false}
-                />
-              }
-            />
-            <Route
-              path="/organise"
-              element={<Organise postGame={postGame} user={user} />}
-            />
-            <Route
-              path="/mygames"
-              element={
-                <GameList games={joinedGames} user={user} joined={true} />
-              }
-            />
-            <Route path="/account" element={<Account user={user} />} />
-          </Routes>
+        <>
+          <div className="body-container">
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <GameList
+                    games={games}
+                    joinGame={joinGame}
+                    user={user}
+                    allGames={true}
+                  />
+                }
+              />
+              <Route
+                path="/gamelist"
+                element={
+                  <GameList
+                    games={games}
+                    joinGame={joinGame}
+                    user={user}
+                    allGames={true}
+                  />
+                }
+              />
+              <Route
+                path="/organise"
+                element={<OrganiseGame postGame={postGame} user={user} />}
+              />
+              <Route
+                path="/mygames"
+                element={
+                  <GameList games={joinedGames} user={user} allGames={false} />
+                }
+              />
+              <Route path="/account" element={<Account user={user} />} />
+            </Routes>
+          </div>
+
           <Box
-            sx={{ width: "100vw", position: "fixed", bottom: 0, opacity: 0.5 }}
+            sx={{
+              width: "100vw",
+              position: "fixed",
+              bottom: 0,
+            }}
           >
-            <BottomNavigation showLabels>
+            <BottomNavigation showLabels style={{ backgroundColor: "#dbd4af" }}>
               <BottomNavigationAction
                 label="Upcoming"
                 icon={<FormatListBulletedOutlinedIcon />}
@@ -151,7 +158,7 @@ function App() {
                 onClick={() => navigate("/organise")}
               />
               <BottomNavigationAction
-                label="Joined"
+                label="Attending"
                 icon={<FavoriteIcon />}
                 onClick={() => navigate("/mygames")}
               />
@@ -162,9 +169,9 @@ function App() {
               />
             </BottomNavigation>
           </Box>
-        </div>
+        </>
       ) : (
-        <div className="login-container">
+        <div className="body-container">
           <SignIn logIn={logIn} />
         </div>
       )}
