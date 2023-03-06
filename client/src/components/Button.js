@@ -11,14 +11,14 @@ function Button({ user, game, joinGame, unJoinGame }) {
     if (game.subscribedlist.includes(user._id)) {
       return (
         <>
-          <button className="game-incomplete" onClick={handleClickUnJoin}>
+          <button className="game-button" onClick={handleClickUnJoin}>
             Unjoin
           </button>
         </>
       );
     } else if (game.subscribedlist.length < game.maxplayers) {
       return (
-        <button className="game-incomplete" onClick={handleClickJoin}>
+        <button className="game-button" onClick={handleClickJoin}>
           Join!
         </button>
       );

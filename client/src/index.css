@@ -40,17 +40,6 @@ select {
   padding: 5px;
 }
 
-button {
-  background-color: #3faae2;
-  border: none;
-  border-radius: 3px;
-  color: #dbd4af;
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 10px;
-  padding: 10px;
-}
-
 button:hover {
   cursor: pointer;
 }
@@ -70,13 +59,30 @@ button:hover {
   padding: 10px;
 }
 
-.game-incomplete {
+.organise-button,
+.game-button {
   background-color: #3faae2;
   border: none;
   border-radius: 5px;
   color: #dbd4af;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.organise-button {
+  padding: 10px;
+}
+
+.game-button {
   padding: 20px;
 }
+
+/* .MuiButtonBase-root-MuiButton-root {
+  background-color: #dbd4af;
+  color: #3faae2;
+  font-weight: 800;
+} */
 
 .add-container {
   background-color: #dbd4af;
@@ -106,6 +112,23 @@ button:hover {
   max-width: 70vw;
 }
 
+.account-title {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 0;
+  text-align: center;
+}
+
+.account-line {
+  background-color: #3faae2;
+  height: 1px;
+  width: 60vw;
+}
+
+.account-detail {
+  font-weight: bold;
+}
+
 .add-container h2 {
   margin: 0;
 }
@@ -125,6 +148,14 @@ button:hover {
   padding: 10px 20px;
   text-align: center;
   max-width: 70vw;
+}
+
+/* .bottom-nav {
+  background-color: #dbd4af;
+} */
+
+.sign-up {
+  text-align: center;
 }
 
 ::-webkit-scrollbar {

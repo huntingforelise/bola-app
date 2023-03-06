@@ -69,6 +69,8 @@ function SignIn({ logIn }) {
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
+            // className="MuiButtonBase-root-MuiButton-root"
+            // className="login-button"
             style={{
               backgroundColor: "#dbd4af",
               color: "#3faae2",
@@ -77,7 +79,7 @@ function SignIn({ logIn }) {
           >
             Sign In
           </Button>
-          <div style={{ textAlign: "center" }}>
+          <div className="sign-up">
             <Link href="#" variant="body2">
               {"Don't have an account? Sign Up"}
             </Link>

@@ -20,3 +20,13 @@ exports.post = async (ctx) => {
     ctx.status = 500;
   }
 };
+
+exports.getAll = async (ctx) => {
+  try {
+    ctx.body = await user.find({}, { username: 1 });
+    ctx.status = 200;
+  } catch (e) {
+    console.log(e);
+    ctx.status = 500;
+  }
+};

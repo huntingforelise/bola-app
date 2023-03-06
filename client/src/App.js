@@ -4,6 +4,7 @@ import GameList from "./components/GameList";
 import OrganiseGame from "./components/OrganiseGame";
 import Account from "./components/Account";
 import * as ApiClient from "./ApiClientService";
+import { filterGames } from "./Helpers";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
@@ -21,6 +22,7 @@ function App() {
   const [user, setUser] = useState({});
   const [games, setGames] = useState([]);
   const [joinedGames, setJoinedGames] = useState([]);
+  const [users, setUsers] = useState([]);
   const navigate = useNavigate();
 
   function logIn(user) {
@@ -35,30 +37,26 @@ function App() {
       .catch((error) => console.log(error));
   }
 
-  const filterGames = (arr) => {
-    const myGames = [];
-    for (const game of arr) {
-      for (const id of game.subscribedlist) {
-        if (id === user._id) {
-          myGames.push(game);
-        }
-      }
-    }
-    return myGames;
-  };
-
   useEffect(() => {
     ApiClient.getGames()
       .then((games) => {
         setGames(games);
         if (loggedIn) {
-          const filteredGames = filterGames(games);
+          const filteredGames = filterGames(games, user);
           setJoinedGames(filteredGames);
         }
       })
       .catch((error) => console.log(error));
     // eslint-disable-next-line
   }, [user]);
+
+  useEffect(() => {
+    ApiClient.getUsers()
+      .then((users) => {
+        setUsers(users);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   function postGame(game) {
     ApiClient.postGame({
@@ -159,7 +157,12 @@ function App() {
               <Route
                 path="/mygames"
                 element={
-                  <GameList games={joinedGames} user={user} allGames={false} />
+                  <GameList
+                    games={joinedGames}
+                    user={user}
+                    allGames={false}
+                    users={users}
+                  />
                 }
               />
               <Route path="/account" element={<Account user={user} />} />
@@ -173,7 +176,11 @@ function App() {
               bottom: 0,
             }}
           >
-            <BottomNavigation showLabels style={{ backgroundColor: "#dbd4af" }}>
+            <BottomNavigation
+              // className="bottom-nav"
+              showLabels
+              style={{ backgroundColor: "#dbd4af" }}
+            >
               <BottomNavigationAction
                 label="Upcoming"
                 icon={<FormatListBulletedOutlinedIcon />}

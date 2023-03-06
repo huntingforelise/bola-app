@@ -38,7 +38,6 @@ exports.join = async (ctx) => {
         $addToSet: { gameslist: gameID },
       });
       const updatedGame = await game.findById(gameID);
-      console.log(updatedGame);
       ctx.body = updatedGame;
       ctx.status = 201;
     }
@@ -62,7 +61,6 @@ exports.unjoin = async (ctx) => {
       $pullAll: { gameslist: [gameID] },
     });
     const updatedGame = await game.findById(gameID);
-    console.log(updatedGame);
     ctx.body = updatedGame;
     ctx.status = 201;
   } catch (e) {

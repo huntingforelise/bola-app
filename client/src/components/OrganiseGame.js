@@ -22,7 +22,7 @@ function OrganiseGame({ postGame }) {
               <label>
                 Date and time
                 <br />
-                <input name="date" type="datetime-local" />
+                <input name="date" type="datetime-local" step="900" />
               </label>
             </div>
             <div className="form-element">
@@ -60,7 +60,7 @@ function OrganiseGame({ postGame }) {
               </label>
             </div>
             <div className="form-element">
-              <button name="button" type="submit">
+              <button name="button" type="submit" className="organise-button">
                 Create
               </button>
             </div>
