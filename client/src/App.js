@@ -36,17 +36,15 @@ function App() {
   }
 
   const filterGames = (arr) => {
-    if (loggedIn) {
-      const myGames = [];
-      for (const game of arr) {
-        for (const id of game.subscribedlist) {
-          if (id === user._id) {
-            myGames.push(game);
-          }
+    const myGames = [];
+    for (const game of arr) {
+      for (const id of game.subscribedlist) {
+        if (id === user._id) {
+          myGames.push(game);
         }
       }
-      return myGames;
     }
+    return myGames;
   };
 
   useEffect(() => {
@@ -81,15 +79,42 @@ function App() {
         const newGames = [...games];
         for (const newGame of newGames) {
           if (newGame._id === updatedGame._id) {
-            const updatedPlayers = updatedGame.subscribedlist.length;
-            newGame.subscribedlist.length = updatedPlayers;
+            const updatedPlayers = updatedGame.subscribedlist;
+            newGame.subscribedlist = updatedPlayers;
           }
         }
         setGames(newGames);
-        const gameID = updatedGame._id;
-        if (!userObject.gameslist.includes(gameID)) {
-          setJoinedGames([...joinedGames, updatedGame]);
+        setUser((prev) => {
+          const user = { ...prev, gameslist: [...prev.gameslist] };
+          user.gameslist.push(updatedGame._id);
+          return user;
+        });
+
+        // const gameID = updatedGame._id;
+        // if (!userObject.gameslist.includes(gameID)) {
+        //   setJoinedGames([...joinedGames, updatedGame]);
+        // }
+      })
+      .catch((error) => console.log(error));
+  }
+
+  function unJoinGame(fullGameObject, userObject) {
+    ApiClient.unJoinGame(fullGameObject, userObject)
+      .then((updatedGame) => {
+        const newGames = [...games];
+        for (const newGame of newGames) {
+          if (newGame._id === updatedGame._id) {
+            const updatedPlayers = updatedGame.subscribedlist;
+            newGame.subscribedlist = updatedPlayers;
+          }
         }
+        setGames(newGames);
+        setUser((prev) => {
+          const user = { ...prev, gameslist: [...prev.gameslist] };
+          const index = user.gameslist.indexOf(updatedGame._id);
+          user.gameslist.splice(index, 1);
+          return user;
+        });
       })
       .catch((error) => console.log(error));
   }
@@ -97,7 +122,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <img src={image} alt="bola-logo" />
+        <img src={image} alt="Bola" />
       </header>
       {loggedIn ? (
         <>
@@ -109,6 +134,7 @@ function App() {
                   <GameList
                     games={games}
                     joinGame={joinGame}
+                    unJoinGame={unJoinGame}
                     user={user}
                     allGames={true}
                   />
@@ -120,6 +146,7 @@ function App() {
                   <GameList
                     games={games}
                     joinGame={joinGame}
+                    unJoinGame={unJoinGame}
                     user={user}
                     allGames={true}
                   />

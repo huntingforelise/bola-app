@@ -38,9 +38,33 @@ exports.join = async (ctx) => {
         $addToSet: { gameslist: gameID },
       });
       const updatedGame = await game.findById(gameID);
+      console.log(updatedGame);
       ctx.body = updatedGame;
       ctx.status = 201;
     }
+  } catch (e) {
+    // console.log(e.message);
+    console.log(e);
+    ctx.status = 500;
+  }
+};
+
+exports.unjoin = async (ctx) => {
+  try {
+    const gameID = ctx.params.id;
+    const userID = ctx.request.body.userId;
+    const gameToBeUpdated = await game.findById(gameID);
+    const userToBeUpdated = await user.findById(ctx.request.body.userId);
+    await game.updateOne(gameToBeUpdated, {
+      $pullAll: { subscribedlist: [userID] },
+    });
+    await user.updateOne(userToBeUpdated, {
+      $pullAll: { gameslist: [gameID] },
+    });
+    const updatedGame = await game.findById(gameID);
+    console.log(updatedGame);
+    ctx.body = updatedGame;
+    ctx.status = 201;
   } catch (e) {
     // console.log(e.message);
     console.log(e);

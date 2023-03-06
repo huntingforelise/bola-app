@@ -12,9 +12,14 @@ function Account({ user }) {
           }}
         >
           Account info
-          <hr style={{ size: 50, color: "blue" }} />
-          {/* how do I fix this */}
         </p>
+        <hr
+          style={{
+            backgroundColor: "#3faae2",
+            height: "1px",
+            width: "60vw",
+          }}
+        />
         <table>
           <tbody>
             <tr>

@@ -1,23 +1,28 @@
 import moment from "moment";
 import Button from "./Button.js";
 
-function Game({ game, joinGame, user, allGames }) {
+function Game({ game, joinGame, unJoinGame, user, allGames }) {
   const day = moment(game.date).format("MMM D");
   const time = moment(game.date).format("h:mm a");
 
   return (
     <>
       <div className="game">
-        <p id="game-day">{day}</p>
-        <p id="game-dayTime">{time}</p>
-        <p id="game-beach">{game.beach}</p>
-        <p id="game-players">
+        <p className="game-day">{day}</p>
+        <p className="game-time">{time}</p>
+        <p className="game-beach">{game.beach}</p>
+        <p className="game-players">
           {game.subscribedlist.length} / {game.maxplayers}
         </p>
-        <p id="game-level">{game.level}</p>
+        <p className="game-level">{game.level}</p>
 
         {allGames ? (
-          <Button user={user} game={game} joinGame={joinGame} />
+          <Button
+            user={user}
+            game={game}
+            joinGame={joinGame}
+            unJoinGame={unJoinGame}
+          />
         ) : null}
       </div>
     </>

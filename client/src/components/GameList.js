@@ -1,6 +1,6 @@
 import Game from "./Game";
 
-function GameList({ games, joinGame, user, allGames }) {
+function GameList({ games, joinGame, unJoinGame, user, allGames }) {
   return (
     <>
       {allGames ? <h2>Upcoming Games</h2> : <h2>Your Games</h2>}
@@ -15,6 +15,7 @@ function GameList({ games, joinGame, user, allGames }) {
                 game={game}
                 key={game._id}
                 joinGame={joinGame}
+                unJoinGame={unJoinGame}
                 user={user}
                 allGames={allGames}
               />

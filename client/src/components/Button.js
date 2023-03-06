@@ -1,22 +1,33 @@
-import { useState } from "react";
-
-function Button({ user, game, joinGame }) {
-  // const [gameStatus, setGameStatus] = useState({});
-
-  function handleClick() {
+function Button({ user, game, joinGame, unJoinGame }) {
+  function handleClickJoin() {
     joinGame(game, user);
-    // setGameStatus(game);
   }
 
-  return user.gameslist.includes(game._id) ? (
-    <p className="game-joined">Joined</p>
-  ) : game.subscribedlist.length < game.maxplayers ? (
-    <button className="game-incomplete" onClick={handleClick}>
-      Join!
-    </button>
-  ) : (
-    <p className="game-full">Full</p>
-  );
+  function handleClickUnJoin() {
+    unJoinGame(game, user);
+  }
+
+  function setButton() {
+    if (game.subscribedlist.includes(user._id)) {
+      return (
+        <>
+          <button className="game-incomplete" onClick={handleClickUnJoin}>
+            Unjoin
+          </button>
+        </>
+      );
+    } else if (game.subscribedlist.length < game.maxplayers) {
+      return (
+        <button className="game-incomplete" onClick={handleClickJoin}>
+          Join!
+        </button>
+      );
+    } else {
+      return <p className="game-full">Full</p>;
+    }
+  }
+
+  return setButton();
 }
 
 export default Button;

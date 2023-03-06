@@ -31,7 +31,19 @@ export const postGame = (body) => {
 export const joinGame = (gameBody, userBody) => {
   const gameId = gameBody._id;
   const userId = userBody._id;
-  return fetch(`${baseURL}/games/${gameId}`, {
+  return fetch(`${baseURL}/games/${gameId}/join`, {
+    method: "PUT",
+    body: JSON.stringify({ userId }),
+    headers: { "Content-type": "application/json; charset=UTF-8" },
+  })
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
+};
+
+export const unJoinGame = (gameBody, userBody) => {
+  const gameId = gameBody._id;
+  const userId = userBody._id;
+  return fetch(`${baseURL}/games/${gameId}/unjoin`, {
     method: "PUT",
     body: JSON.stringify({ userId }),
     headers: { "Content-type": "application/json; charset=UTF-8" },

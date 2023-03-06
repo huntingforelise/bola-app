@@ -9,6 +9,7 @@ const user = require("./controllers/user.js");
 router.post("/login", user.post);
 router.get("/games", game.getAll);
 router.post("/games", game.post);
-router.put("/games/:id", game.join);
+router.put("/games/:id/join", game.join);
+router.put("/games/:id/unjoin", game.unjoin);
 
 module.exports = router;
