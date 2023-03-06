@@ -1,10 +1,15 @@
+// import { useState } from "react";
+
 function Button({ user, game, joinGame, unJoinGame }) {
+  // const [agame, setAGame] = useState(game);
+
   function handleClickJoin() {
     joinGame(game, user);
   }
 
   function handleClickUnJoin() {
     unJoinGame(game, user);
+    // setAGame({});
   }
 
   function setButton() {
@@ -23,7 +28,7 @@ function Button({ user, game, joinGame, unJoinGame }) {
         </button>
       );
     } else {
-      return <p className="game-full">Full</p>;
+      return <div className="game-full">FULL</div>;
     }
   }
 

@@ -87,11 +87,6 @@ function App() {
           user.gameslist.push(updatedGame._id);
           return user;
         });
-
-        // const gameID = updatedGame._id;
-        // if (!userObject.gameslist.includes(gameID)) {
-        //   setJoinedGames([...joinedGames, updatedGame]);
-        // }
       })
       .catch((error) => console.log(error));
   }
@@ -113,6 +108,9 @@ function App() {
           user.gameslist.splice(index, 1);
           return user;
         });
+        //added
+        // const filteredGames = filterGames(games, user);
+        // setJoinedGames(filteredGames);
       })
       .catch((error) => console.log(error));
   }

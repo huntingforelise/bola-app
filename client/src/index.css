@@ -35,9 +35,9 @@ select {
   border: none;
   border-radius: 3px;
   color: #dbd4af;
-  font-size: 16px;
+  font-size: 18px;
   margin-top: 10px;
-  padding: 5px;
+  padding: 10px;
 }
 
 button:hover {
@@ -54,9 +54,31 @@ button:hover {
   border-radius: 10px;
   color: #3faae2;
   display: flex;
-  justify-content: space-around;
+  font-size: 18px;
+  justify-content: space-between;
   margin: 30px 20px;
   padding: 10px;
+}
+
+.game > * {
+  flex: 1;
+}
+
+.your-game {
+  flex-direction: column;
+  gap: 20px;
+  max-width: 60vw;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.game-day {
+  background-color: #3faae2;
+  border-radius: 5px;
+  color: #dbd4af;
+  margin-left: 10px;
+  padding: 10px;
+  font-size: 25px;
 }
 
 .organise-button,
@@ -65,7 +87,7 @@ button:hover {
   border: none;
   border-radius: 5px;
   color: #dbd4af;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   margin-top: 10px;
 }
@@ -75,6 +97,7 @@ button:hover {
 }
 
 .game-button {
+  margin-right: 10px;
   padding: 20px;
 }
 
@@ -91,12 +114,12 @@ button:hover {
   color: #3faae2;
   display: flex;
   flex-direction: column;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   margin: 30px auto;
-  padding: 10px 20px;
+  padding: 20px 20px;
   text-align: left;
-  max-width: 70vw;
+  max-width: 50vw;
 }
 
 .account-container {
@@ -109,7 +132,7 @@ button:hover {
   margin: 30px auto;
   padding: 20px 20px;
   text-align: left;
-  max-width: 70vw;
+  max-width: 60vw;
 }
 
 .account-title {
@@ -122,7 +145,7 @@ button:hover {
 .account-line {
   background-color: #3faae2;
   height: 1px;
-  width: 60vw;
+  width: 55vw;
 }
 
 .account-detail {
@@ -150,12 +173,12 @@ button:hover {
   max-width: 70vw;
 }
 
-/* .bottom-nav {
-  background-color: #dbd4af;
-} */
-
 .sign-up {
   text-align: center;
+}
+
+.your-game-header {
+  font-weight: bold;
 }
 
 ::-webkit-scrollbar {
@@ -165,4 +188,69 @@ button:hover {
 
 ::-webkit-scrollbar-thumb {
   background: #dbd4af;
+}
+
+@media only screen and (max-width: 500px) {
+  .add-container {
+    max-width: 80vw;
+    padding: 10px 20px;
+  }
+
+  .game {
+    flex-wrap: wrap;
+    gap: 0 30px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+  }
+
+  .game-day {
+    flex-basis: 25%;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-top: 10px;
+    padding: 4px;
+  }
+
+  .game-time {
+    flex-basis: 20%;
+  }
+
+  .game-beach {
+    flex-basis: 30%;
+  }
+
+  .game-spots {
+    flex-basis: 30%;
+    margin-top: 5px;
+  }
+
+  .game-type {
+    flex-basis: 10%;
+    margin-top: 5px;
+  }
+
+  .game-level {
+    flex-basis: 25%;
+    margin-top: 5px;
+  }
+
+  .game-button,
+  .game-full {
+    margin-top: 10px;
+    padding: 5px;
+  }
+
+  .your-game {
+    gap: 10px;
+    max-width: 80vw;
+    padding: 20px;
+  }
+
+  .account-container {
+    max-width: 70vw;
+  }
+
+  img {
+    max-height: 120px;
+  }
 }
