@@ -31,13 +31,13 @@ function SignIn({ logIn }) {
           alignItems: "center",
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: "#dbd4af" }}>
+        <Avatar sx={{ m: 1, bgcolor: "#74affc" }}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography
           component="h1"
           variant="h5"
-          style={{ color: "#dbd4af", fontWeight: 600 }}
+          style={{ color: "#74affc", fontWeight: 600 }}
         >
           Sign in
         </Typography>
@@ -72,7 +72,7 @@ function SignIn({ logIn }) {
             // className="MuiButtonBase-root-MuiButton-root"
             // className="login-button"
             style={{
-              backgroundColor: "#dbd4af",
+              backgroundColor: "#f8f653",
               color: "#3faae2",
               fontWeight: 800,
             }}

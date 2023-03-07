@@ -23,7 +23,7 @@ exports.post = async (ctx) => {
 
 exports.getAll = async (ctx) => {
   try {
-    ctx.body = await user.find({}, { username: 1 });
+    ctx.body = await user.find({}, { firstname: 1 });
     ctx.status = 200;
   } catch (e) {
     console.log(e);

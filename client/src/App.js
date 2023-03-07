@@ -8,7 +8,7 @@ import { filterGames } from "./Helpers";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
-import image from "./assets/BusinessCard.JPG";
+import image from "./assets/Logo2.JPG";
 import Box from "@mui/material/Box";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
@@ -20,9 +20,9 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState({});
+  const [users, setUsers] = useState([]);
   const [games, setGames] = useState([]);
   const [joinedGames, setJoinedGames] = useState([]);
-  const [users, setUsers] = useState([]);
   const navigate = useNavigate();
 
   function logIn(user) {
@@ -177,7 +177,7 @@ function App() {
             <BottomNavigation
               // className="bottom-nav"
               showLabels
-              style={{ backgroundColor: "#dbd4af" }}
+              style={{ backgroundColor: "#74affc", opacity: 0.8 }}
             >
               <BottomNavigationAction
                 label="Upcoming"

@@ -13,7 +13,7 @@ function Game({ game, joinGame, unJoinGame, user, allGames, users }) {
     for (const player of players) {
       for (const userel of users) {
         if (player === userel._id && player !== user._id) {
-          playersArray.push(userel.username);
+          playersArray.push(userel.firstname);
         }
       }
     }

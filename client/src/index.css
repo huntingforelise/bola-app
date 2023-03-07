@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #3faae2;
+  /* background-color: #f8f653; */
   min-height: 100vh;
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -11,30 +11,30 @@ body {
 }
 
 header {
-  background-color: #dbd4af;
+  background-color: #74affc;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-bottom: 0;
-  position: sticky;
+  /* position: sticky; */
 }
 
 h2 {
-  color: #dbd4af;
+  color: #74affc;
   margin-top: 30px;
 }
 
 img {
-  max-height: 150px;
+  max-height: 130px;
   top: 0;
 }
 
 input,
 select {
-  background-color: #3faae2;
+  background-color: white;
   border: none;
   border-radius: 3px;
-  color: #dbd4af;
+  color: #74affc;
   font-size: 18px;
   margin-top: 10px;
   padding: 10px;
@@ -50,9 +50,10 @@ button:hover {
 
 .game {
   align-items: center;
-  background-color: #dbd4af;
+  background-color: #74affc;
   border-radius: 10px;
-  color: #3faae2;
+  color: white;
+  /* color: #f8f653; */
   display: flex;
   font-size: 18px;
   justify-content: space-between;
@@ -73,9 +74,10 @@ button:hover {
 }
 
 .game-day {
-  background-color: #3faae2;
+  background-color: white;
+  /* background-color: #f8f653; */
   border-radius: 5px;
-  color: #dbd4af;
+  color: #74affc;
   margin-left: 10px;
   padding: 10px;
   font-size: 25px;
@@ -83,10 +85,10 @@ button:hover {
 
 .organise-button,
 .game-button {
-  background-color: #3faae2;
+  background-color: #f8f653;
   border: none;
   border-radius: 5px;
-  color: #dbd4af;
+  color: #74affc;
   font-size: 18px;
   font-weight: bold;
   margin-top: 10px;
@@ -102,30 +104,32 @@ button:hover {
 }
 
 /* .MuiButtonBase-root-MuiButton-root {
-  background-color: #dbd4af;
-  color: #3faae2;
+  background-color: #74AFFC;
+  color: #f8f653;
   font-weight: 800;
 } */
 
 .add-container {
-  background-color: #dbd4af;
+  background-color: #74affc;
   align-items: center;
   border-radius: 10px;
-  color: #3faae2;
+  color: #f8f653;
   display: flex;
   flex-direction: column;
+  /* flex-direction: row; */
+  /* flex-wrap: wrap; */
   font-size: 20px;
   font-weight: bold;
   margin: 30px auto;
-  padding: 20px 20px;
+  padding: 40px 20px;
   text-align: left;
-  max-width: 50vw;
+  max-width: 40vw;
 }
 
 .account-container {
-  background-color: #dbd4af;
+  background-color: #74affc;
   border-radius: 10px;
-  color: #3faae2;
+  color: white;
   display: flex;
   flex-direction: column;
   font-size: 18px;
@@ -136,6 +140,7 @@ button:hover {
 }
 
 .account-title {
+  color: #f8f653;
   font-weight: bold;
   font-size: 20px;
   margin-top: 0;
@@ -143,7 +148,7 @@ button:hover {
 }
 
 .account-line {
-  background-color: #3faae2;
+  background-color: #f8f653;
   height: 1px;
   width: 55vw;
 }
@@ -162,9 +167,9 @@ button:hover {
 }
 
 .game-on {
-  background-color: #dbd4af;
+  background-color: #74affc;
   border-radius: 10px;
-  color: #3faae2;
+  color: #f8f653;
   font-size: 18px;
   font-weight: bold;
   margin: 30px auto;
@@ -178,6 +183,7 @@ button:hover {
 }
 
 .your-game-header {
+  color: #f8f653;
   font-weight: bold;
 }
 
@@ -187,7 +193,7 @@ button:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #dbd4af;
+  background: #74affc;
 }
 
 @media only screen and (max-width: 500px) {
@@ -205,9 +211,8 @@ button:hover {
 
   .game-day {
     flex-basis: 25%;
-    margin-bottom: 0;
+    margin-bottom: 10px;
     margin-left: 0;
-    margin-top: 10px;
     padding: 4px;
   }
 
@@ -220,7 +225,8 @@ button:hover {
   }
 
   .game-spots {
-    flex-basis: 30%;
+    flex-basis: 25%;
+    /* margin-left: 0; */
     margin-top: 5px;
   }
 
@@ -236,7 +242,7 @@ button:hover {
 
   .game-button,
   .game-full {
-    margin-top: 10px;
+    margin-top: 20px;
     padding: 5px;
   }
 
@@ -251,6 +257,6 @@ button:hover {
   }
 
   img {
-    max-height: 120px;
+    max-height: 110px;
   }
 }
