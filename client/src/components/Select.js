@@ -1,21 +1,15 @@
-// import { useState } from "react";
-
-const Select = ({ onChange }) => {
-  // const [selectValue, setSelectValue] = useState("");
-  // const onChange = (event) => {
-  //   const value = event.target.value;
-  //   setSelectValue(value);
-  //   console.log(value);
-  // };
+const Select = ({ onChangeBeach, onChangeLevel }) => {
   return (
-    <div>
-      <select onChange={onChange} className="form-select">
-        <option defaultValue>Select Beach</option>
-        <option value="Praia da Luz">Praia da Luz</option>
-        <option value="Porto de Mos">Porto de Mos</option>
-        <option value="Meia Praia">Meia Praia</option>
-      </select>
-    </div>
+    <>
+      <div>
+        <select onChange={onChangeLevel} className="form-select">
+          <option defaultValue>Select Level</option>
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
+        </select>
+      </div>
+    </>
   );
 };
 export default Select;

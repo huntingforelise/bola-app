@@ -14,9 +14,7 @@ export const getUsers = () =>
   fetch(`${baseURL}/users`)
     .then((res) => (res.status <= 400 ? res : Promise.reject(res)))
     .then((res) => res.json())
-    .catch((err) => {
-      console.log(err);
-    });
+    .catch((err) => err);
 
 export const getGames = () =>
   fetch(`${baseURL}/games`)

@@ -9,6 +9,7 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import { ToastContainer } from "react-toastify";
 
 function SignIn({ logIn }) {
   const handleSubmit = (event) => {
@@ -69,8 +70,6 @@ function SignIn({ logIn }) {
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
-            // className="MuiButtonBase-root-MuiButton-root"
-            // className="login-button"
             style={{
               backgroundColor: "#f8f653",
               color: "#3faae2",
@@ -79,6 +78,7 @@ function SignIn({ logIn }) {
           >
             Sign In
           </Button>
+          <ToastContainer />
           <div className="sign-up">
             <Link href="#" variant="body2">
               {"Don't have an account? Sign Up"}

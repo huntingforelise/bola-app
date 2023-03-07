@@ -16,6 +16,8 @@ import FormatListBulletedOutlinedIcon from "@mui/icons-material/FormatListBullet
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -25,17 +27,17 @@ function App() {
   const [joinedGames, setJoinedGames] = useState([]);
   const navigate = useNavigate();
 
-  function logIn(user) {
-    ApiClient.postUser(user)
-      .then((user) => {
-        if (user) {
-          const output = true;
-          setLoggedIn(output);
-          setUser(user);
-        }
-      })
-      .catch((error) => console.log(error));
-  }
+  const logIn = async (user) => {
+    const { res, error } = await ApiClient.postUser(user);
+    const errorToast = () => toast(res);
+    if (!error) {
+      const output = true;
+      setLoggedIn(output);
+      setUser(user);
+    } else {
+      errorToast();
+    }
+  };
 
   useEffect(() => {
     ApiClient.getGames()
@@ -108,9 +110,6 @@ function App() {
           user.gameslist.splice(index, 1);
           return user;
         });
-        //added
-        // const filteredGames = filterGames(games, user);
-        // setJoinedGames(filteredGames);
       })
       .catch((error) => console.log(error));
   }
@@ -175,7 +174,6 @@ function App() {
             }}
           >
             <BottomNavigation
-              // className="bottom-nav"
               showLabels
               style={{ backgroundColor: "#74affc", opacity: 0.8 }}
             >

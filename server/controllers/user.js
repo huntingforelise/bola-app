@@ -4,20 +4,23 @@ const user = require("../models/user.js");
 
 exports.post = async (ctx) => {
   try {
-    const allUsers = await user.find();
-    const output = ctx.request.body;
-    for (const user of allUsers) {
-      if (
-        user.username === output.username &&
-        user.password === output.password
-      ) {
-        ctx.body = user;
+    const { username, password } = ctx.request.body;
+    if (!username || !password) {
+      ctx.status = 400;
+      ctx.body = { res: "Missing fields!", error: true };
+    } else {
+      const theUser = await user.find({ username: username });
+      if (theUser[0].password === password) {
+        ctx.status = 201;
+        ctx.body = { res: theUser, error: false };
+      } else if (!theUser || theUser.password !== password) {
+        ctx.status = 400;
+        ctx.body = { res: "Wrong username and/or password!", error: true };
       }
     }
-    ctx.status = 201;
   } catch (e) {
-    console.log(e);
     ctx.status = 500;
+    ctx.body = { res: "Internal Server Error!", error: true };
   }
 };
 

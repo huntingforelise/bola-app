@@ -3,19 +3,21 @@ import Select from "./Select";
 import { useState } from "react";
 
 function GameList({ games, joinGame, unJoinGame, user, allGames, users }) {
-  const [selectValue, setSelectValue] = useState("");
+  const [selectLevelValue, setSelectLevelValue] = useState("");
   const [filterGames, setFilterGames] = useState([]);
-  const onChange = (event) => {
+
+  function onChangeLevel(event) {
     const value = event.target.value;
-    setSelectValue(value);
-    filterByBeach(value);
-  };
+    setSelectLevelValue(value);
+    filterByLevel(value);
+  }
 
   const filterArray = [];
 
-  function filterByBeach(beachValue) {
+  function filterByLevel(levelValue) {
+    // filterArray = [];
     for (const game of games) {
-      if (game.beach === beachValue) {
+      if (game.level === levelValue) {
         filterArray.push(game);
       }
     }
@@ -27,7 +29,7 @@ function GameList({ games, joinGame, unJoinGame, user, allGames, users }) {
       {allGames ? (
         <>
           <h2>Upcoming Games</h2>
-          <Select onChange={onChange} />
+          <Select onChangeLevel={onChangeLevel} className="select-dropdown" />
         </>
       ) : (
         <h2>Your Games</h2>
@@ -36,7 +38,7 @@ function GameList({ games, joinGame, unJoinGame, user, allGames, users }) {
       {games.length ? (
         <>
           <div id="games-list">
-            {(selectValue === "Select Beach") | (selectValue === "")
+            {(selectLevelValue === "Select Level") | (selectLevelValue === "")
               ? games
                   .filter((a) => new Date(a.date) >= Date.now())
                   .sort((a, b) => new Date(a.date) - new Date(b.date))

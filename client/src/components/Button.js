@@ -1,15 +1,26 @@
-// import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Button({ user, game, joinGame, unJoinGame }) {
-  // const [agame, setAGame] = useState(game);
-
+  const notify = () =>
+    toast(
+      "Sorry, you are not experienced enough for this game. Keep practising, you'll get there in no time!"
+    );
   function handleClickJoin() {
-    joinGame(game, user);
+    if (
+      game.level === "Beginner" ||
+      (game.level === "Intermediate" &&
+        (user.level === "Intermediate" || user.level === "Advanced")) ||
+      (game.level === "Advanced" && user.level === "Advanced")
+    ) {
+      joinGame(game, user);
+    } else {
+      notify();
+    }
   }
 
   function handleClickUnJoin() {
     unJoinGame(game, user);
-    // setAGame({});
   }
 
   function setButton() {
@@ -23,9 +34,17 @@ function Button({ user, game, joinGame, unJoinGame }) {
       );
     } else if (game.subscribedlist.length < game.maxplayers) {
       return (
-        <button className="game-button" onClick={handleClickJoin}>
-          Join!
-        </button>
+        <div>
+          <button
+            className="game-button"
+            onClick={() => {
+              handleClickJoin();
+            }}
+          >
+            Join!
+          </button>
+          <ToastContainer />
+        </div>
       );
     } else {
       return <div className="game-full">FULL</div>;

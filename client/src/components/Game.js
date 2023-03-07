@@ -65,10 +65,6 @@ function Game({ game, joinGame, unJoinGame, user, allGames, users }) {
                 It's just you at the moment! Fancy inviting some friends?
               </div>
             )}
-
-            {/* <div>
-              <Button user={user} game={game} unJoinGame={unJoinGame} />
-            </div> */}
           </div>
         </>
       )}
