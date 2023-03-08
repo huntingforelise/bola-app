@@ -33,7 +33,7 @@ function App() {
     if (!error) {
       const output = true;
       setLoggedIn(output);
-      setUser(user);
+      setUser(res[0]);
     } else {
       errorToast();
     }

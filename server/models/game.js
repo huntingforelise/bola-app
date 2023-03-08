@@ -19,7 +19,6 @@ const gameSchema = new Schema({
   subscribedlist: {
     type: Array,
   },
-  // hasnet: Boolean,
 });
 
 const Game = mongoose.model("Game", gameSchema);
