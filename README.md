@@ -8,17 +8,15 @@ From the root folder, `cd` into the `/server` folder and run `npm i` in order to
 
 Before moving ahead, you will need to create mock users by running `npm run populate_db`.
 
-Once all of the above is done, you can run `npm run` to run the server. 
+Once all of the above is done, you can run `npm start` to run the server. 
 
 **Front End**
 
-From the `/server` folder, `cd ..` into the root folder and `cd` into the `/client` folder.
+From the server folder, `cd ..` into the root folder and `cd` into the `/client` folder.
 
 Once in the client folder, run `npm start` to run the React scripts and connect the front end. Since something is already running on port 3000, please reply "y" when asked to run the app on another port. It will default to 3001.
 
 Once all of the above steps are taken, the app will open in the browser on localhost:3001.
-
-
 
 ![](C:\Users\elise\AppData\Roaming\marktext\images\2023-03-08-10-15-55-image.png)
 
