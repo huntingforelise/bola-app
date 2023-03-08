@@ -12,7 +12,7 @@ Once all of the above is done, terminate the batch job using CTRL + C and run `n
 
 **Front End**
 
-Open another terminal and `cd` into the `/client` folder. If you are still in the server folder, cd ..` into the root folder first, before moving into the client.
+Open another terminal and `cd` into the `/client` folder. If you are still in the server folder, `cd ..` into the root folder first, before moving into the client.
 
 Once in the client folder, install all dependencies using` npm i`. Then, run `npm start` to run the React scripts and connect the front end. Since something is already running on port 3000, please reply "y" when asked to run the app on another port. It will default to 3001.
 
