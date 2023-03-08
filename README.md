@@ -2,8 +2,6 @@
 
 Bola is a beach volleyball scheduling tool for games in the Lagos, Portugal area. It allows users to attend as well as organize beach volleyball games. It has a dashboard of all upcoming games as well as a personalised dashboards. Users can subscribe to games up to their level of experience. 
 
-
-
 **Back End**
 
 From the root folder, `cd` into the `/server` folder and run `npm i` in order to install all dependencies.
@@ -21,6 +19,8 @@ Once in the client folder, run `npm start` to run the React scripts and connect 
 Once all of the above steps are taken, the app will open in the browser on localhost:3001.
 
 
+
+![](C:\Users\elise\AppData\Roaming\marktext\images\2023-03-08-10-15-55-image.png)
 
 <u>**Useful information**</u>
 
