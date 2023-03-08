@@ -8,13 +8,13 @@ From the root folder, `cd` into the `/server` folder and run `npm i` in order to
 
 Before moving ahead, you will need to create mock users by running `npm run populate_db`.
 
-Once all of the above is done, you can run `npm start` to run the server. 
+Once all of the above is done, terminate the batch job using CTRL + C and run `npm start` to initiate the server. 
 
 **Front End**
 
-From the server folder, `cd ..` into the root folder and `cd` into the `/client` folder.
+Open another terminal and `cd` into the `/client` folder. If you are still in the server folder, cd ..` into the root folder first, before moving into the client.
 
-Once in the client folder, run `npm start` to run the React scripts and connect the front end. Since something is already running on port 3000, please reply "y" when asked to run the app on another port. It will default to 3001.
+Once in the client folder, install all dependencies using` npm i`. Then, run `npm start` to run the React scripts and connect the front end. Since something is already running on port 3000, please reply "y" when asked to run the app on another port. It will default to 3001.
 
 Once all of the above steps are taken, the app will open in the browser on localhost:3001.
 
