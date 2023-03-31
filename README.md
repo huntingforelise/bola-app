@@ -1,6 +1,14 @@
 # Bola app
 
-Bola is a beach volleyball scheduling tool for games in the Lagos, Portugal area. It allows users to attend as well as organize beach volleyball games. It has a dashboard of all upcoming games as well as a personalised dashboards. Users can subscribe to games up to their level of experience. 
+## Description
+
+Bola is a beach volleyball scheduling tool for games in the Lagos, Portugal area. It allows users to attend as well as organize beach volleyball games. It has a dashboard of all upcoming games as well as a personalised dashboard. Users can subscribe to games up to their level of experience. 
+
+![](C:\Users\elise\AppData\Roaming\marktext\images\2023-03-08-10-15-55-image.png)
+
+![](C:\Users\elise\AppData\Roaming\marktext\images\2023-03-31-14-36-10-image.png)
+
+## **Getting Started**
 
 **Back End**
 
@@ -18,10 +26,16 @@ Once in the client folder, install all dependencies using` npm i`. Then, run `np
 
 Once all of the above steps are taken, the app will open in the browser on localhost:3001.
 
-![](C:\Users\elise\AppData\Roaming\marktext\images\2023-03-08-10-15-55-image.png)
-
 <u>**Useful information**</u>
 
 All info with regards to the Mongo database connection can be found in `/server/config.js`. Changes can be made in this file.
 
 If you'd like to modify the users' details, this can be done in `/server/populate.js`.
+
+
+
+## Tech Stack
+
+**Front End**: React, Material UI, Toastify
+
+**Back End**: Koa, MongoDB, Mongoose
