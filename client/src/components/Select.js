@@ -1,4 +1,4 @@
-const Select = ({ onChangeBeach, onChangeLevel }) => {
+const Select = ({ onChangeLevel }) => {
   return (
     <>
       <div>

@@ -7,8 +7,6 @@ function Button({ user, game, joinGame, unJoinGame }) {
       "Sorry, you are not experienced enough for this game. Keep practising, you'll get there in no time!"
     );
   function handleClickJoin() {
-    console.log(game.level);
-    console.log(user.level);
     if (
       game.level === "Beginner" ||
       (game.level === "Intermediate" &&

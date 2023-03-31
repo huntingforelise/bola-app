@@ -15,7 +15,6 @@ function GameList({ games, joinGame, unJoinGame, user, allGames, users }) {
   const filterArray = [];
 
   function filterByLevel(levelValue) {
-    // filterArray = [];
     for (const game of games) {
       if (game.level === levelValue) {
         filterArray.push(game);
